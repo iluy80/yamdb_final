@@ -9,7 +9,7 @@ services:
     env_file:
       - ./.env
   web:
-    image: iluy80/api_yamdb
+    image: iluy80/yamdb_final
     restart: always
     volumes:
       - static_value:/app/static/
