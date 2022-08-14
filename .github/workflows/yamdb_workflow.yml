@@ -24,6 +24,9 @@ jobs:
         # установка зависимостей
         cd api_yamdb/
         pip install -r requirements.txt
+        touch .env
+        echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
+        echo DEBUG=${{ secrets.DEBUG }} >> .env
 
     - name: Test with flake8
          # запуск проверки проекта по flake8
