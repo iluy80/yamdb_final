@@ -28,6 +28,7 @@ jobs:
     - name: Test with flake8
          # запуск проверки проекта по flake8
       run: python -m flake8
+      
     - name: Test django tests
         # запустить написанные разработчиком тесты
       run: pytest
