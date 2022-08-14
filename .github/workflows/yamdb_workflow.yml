@@ -24,9 +24,6 @@ jobs:
         # установка зависимостей
         cd api_yamdb/
         pip install -r requirements.txt
-        touch .env
-        echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
-        echo DEBUG=${{ secrets.DEBUG }} >> .env
 
     - name: Test with flake8
          # запуск проверки проекта по flake8
@@ -34,7 +31,11 @@ jobs:
 
     - name: Test django tests
         # запустить написанные разработчиком тесты
-      run: pytest
+      run: |
+        touch .env
+        echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
+        echo DEBUG=${{ secrets.DEBUG }} >> .env
+        pytest
 
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
